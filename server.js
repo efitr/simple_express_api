@@ -128,6 +128,13 @@ app.get('/zoos/:id/animals/:animalId', (req, res) => {
     res.json(animal);
 });
 
+app.get('/zoos/:id/animals/:animalId/food', (req, res) => {
+    let zoo = zoos[req.params.id];
+    let animals = zoo['animals'];
+    let animal = animals[req.params.animalId];
+    res.json(animal.favorite_food);
+})
+
 app.listen(PORT, function() {
     console.log('listening on', PORT);
 });
